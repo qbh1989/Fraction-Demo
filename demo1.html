@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<style type="text/css">
+    .main{width: 500px;height: 500px;border-radius: 50%;background: #000;margin: 0 auto;}
+    .main div{float: left;width: 50%;height: 50%;border-radius: 50%;background: #f00;}
+
+	</style>
+</head>
+<body>
+	<div class="main">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+
+	</div>
+<script type="text/javascript">
+	
+     var divs = document.getElementsByTagName("div");
+     divs[0].onmouseover = function(){
+
+     	fenlie(this);
+     }
+
+     function fenlie(obj){
+
+        var frag = document.createDocumentFragment();
+        for(var i=0;i<3;i++){
+
+        	var div = document.createElement("div")
+            frag.appendChild(div);
+            div.onmouseover=function(){
+            	fenlie(this);
+            }
+        }
+
+        obj.style.background ="none";
+        obj.appendChild(frag);
+        obj.onmouseover = null;
+
+     }
+
+</script>
+</body>
+</html>
